@@ -1,0 +1,41 @@
+<template>
+     <div class="slds-text-align_center">
+         <span class="slds-text-heading_large">Multi-Scan v6.7</span>
+     </div>
+ 
+     <!-- After barcode are scanned, their values are displayed here: -->
+     <!-- <template if:true={scannedBarcodes}> -->
+          <template for:each={scannedBarcodes} for:item="b">
+               <div key={b}>
+                    {b}
+               </div>
+          </template>
+     <!-- </template> -->
+     <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+          slds-text-align_center slds-border_top slds-border_bottom">
+          <!-- <span class="slds-text-heading_small">{scannedBarcodesAsString}</span> -->
+          <span class="slds-text-heading_small">codes: {scannedBarcodes}</span>
+     </div>
+ 
+     <!-- Static help text -->
+     <div class="slds-text-align_center slds-text-color_weak slds-m-vertical_large">
+         Click <strong>Start a Scanning Session</strong> to open a 
+         barcode scanner camera view. Position a barcode in the scanner 
+         view to scan it.
+ 
+         <p>Continue scanning items. Click ✖ when there are no
+            more items to scan.</p>
+     </div>
+ 
+     <!-- Scan button, always enabled -->
+     <div class="slds-align_absolute-center slds-m-vertical_large">
+         <lightning-button
+             variant="brand"
+             class="slds-var-m-left_x-small"
+             icon-name="utility:scan"
+             label="Start a Scanning Session"
+             title="Start scanning barcodes, until there are no more barcodes to scan"
+             onclick={beginScanning}
+         ></lightning-button>
+     </div>
+ </template>
